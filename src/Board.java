@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
-import java.util.ArrayList;  //hallihallå
+import java.util.ArrayList;  //hallihall
 
 public class Board extends JPanel{
     private Graphics g;
@@ -15,7 +15,7 @@ public class Board extends JPanel{
     private int dimY = 512;
     private int dimX = dimY;
     private int dimTile = dimY/8;
-
+    private Pieces[][] statusBoard = new Pieces[8][8];
     public Board() throws IOException {
         super();
         this.setPreferredSize(new Dimension(dimX,dimY));
