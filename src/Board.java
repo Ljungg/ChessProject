@@ -29,9 +29,9 @@ public class Board extends JPanel{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         //Graphics2D g2 = (Graphics2D) g;
-        Image img1 = Toolkit.getDefaultToolkit().getImage("C:\\Users\\alvin\\IdeaProjects\\UltimateChess\\src\\Images\\chessboard.png");
-        Image img2 = Toolkit.getDefaultToolkit().getImage("C:\\Users\\alvin\\IdeaProjects\\UltimateChess\\src\\Images\\Chess_qlt60.png");
-        Image img3 = Toolkit.getDefaultToolkit().getImage("C:\\Users\\alvin\\IdeaProjects\\UltimateChess\\src\\Images\\Chess_rdt60.png");
+        Image img1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/chessboard.png"));
+        Image img2 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/Chess_qdt60.png"));
+        Image img3 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/Chess_kdt60.png"));
         g.drawImage(img1, 0,0,this.getWidth(), this.getHeight(), this);
         g.drawImage(img2, 0,0, this);
         g.drawImage(img3, dimTile,dimTile, this);
