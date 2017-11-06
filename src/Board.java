@@ -18,7 +18,7 @@ public class Board extends JPanel{
 
     public Board() throws IOException {
         super();
-        this.setPreferredSize(new Dimension(504,504));
+        this.setPreferredSize(new Dimension(dimX,dimY));
         this.setBackground(Color.WHITE);
         initiate();
     }
