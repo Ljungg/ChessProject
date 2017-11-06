@@ -30,6 +30,11 @@ public class Rook extends Pieces{
     }
 
     @Override
+    public Enum getColor() {
+        return null;
+    }
+
+    @Override
     public Image getImage() {
         return null;
     }
