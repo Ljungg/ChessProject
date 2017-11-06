@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.util.ArrayList;  //hallihallå
 
 public class Board extends JPanel{
     private Graphics g;
