@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.swing.*;
 import java.awt.Graphics;
 import java.util.ArrayList;  //hallihall
+//The entire board can be encoded into a 64*12=768 byte long vector
 
 public class Board extends JPanel{
     private Graphics g;
