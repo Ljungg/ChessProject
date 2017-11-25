@@ -90,4 +90,25 @@ public class Board extends JPanel{
         //Graphics2D g2 = (Graphics2D) g;
 
     }
+
+    /** used to update moveListener when moving a piece from one place to another.
+     * @param piece
+     */
+    public void remove(Pieces piece){
+        int x = piece.getX();
+        int y = piece.getY();
+        this.instanceBoard.get(x).set(y, null);
+    }
+
+    public ArrayList<ArrayList<Pieces>> getInstanceBoard() {
+        return instanceBoard;
+    }
+
+    public int getDimTile(){
+        return this.dimTile;
+    }
+
+    public ArrayList<Integer> getCoordinateBoard() {
+        return coordinateBoard;
+    }
 }
