@@ -1,7 +1,5 @@
 package Pieces;
 
-import java.awt.*;
-
 public class Rook extends Pieces{
 
     @Override
@@ -35,7 +33,7 @@ public class Rook extends Pieces{
     }
 
     @Override
-    public Image getImage() {
+    public String getImage() {
         return null;
     }
 }

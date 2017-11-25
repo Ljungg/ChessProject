@@ -9,5 +9,5 @@ public abstract class Pieces {
     public abstract int getX();
     public abstract int getY();
     public abstract Enum getColor();
-    public abstract Image getImage();
+    public abstract String getImage();
 }

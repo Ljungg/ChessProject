@@ -1,3 +1,5 @@
+import Enumerators.BoardEnum;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;

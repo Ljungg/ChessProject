@@ -1,7 +1,5 @@
 package Pieces;
 
-import java.awt.*;
-
 public class Queen extends Pieces {
     @Override
     public void move() {
@@ -34,7 +32,7 @@ public class Queen extends Pieces {
     }
 
     @Override
-    public Image getImage() {
+    public String getImage() {
         return null;
     }
 }
