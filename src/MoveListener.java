@@ -31,6 +31,7 @@ public class MoveListener implements MouseMotionListener, MouseListener{
                     this.dragOffsetX = x - piece.getX() * board.getDimTile();
                     this.dragOffsetY = y - piece.getY() * board.getDimTile();
                     this.dragPiece = piece;
+                    this.board.remove(this.dragPiece);
                     break;
                 }
 
@@ -39,13 +40,14 @@ public class MoveListener implements MouseMotionListener, MouseListener{
 
         }
         if(this.dragPiece != null){
-            this.board.remove(this.dragPiece);
-            
+
+            this.board.add(this.dragPiece);
         }
 
     }
 
     private boolean mouseOverPiece(Pieces piece, int x, int y){
+        if(piece == null) return false;
         return piece.getX() * board.getDimTile() <= x
                 && piece.getX() * board.getDimTile() + this.board.getDimTile() >= x
                 && piece.getY() * board.getDimTile() <= y
@@ -64,12 +66,16 @@ public class MoveListener implements MouseMotionListener, MouseListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        this.dragPiece = null;
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        if(this.dragPiece != null){
+            this.dragPiece.setX(e.getPoint().x - this.dragOffsetX);
+            this.dragPiece.setY(e.getPoint().y - this.dragOffsetY);
+            this.board.repaint();
+        }
     }
 
     @Override
