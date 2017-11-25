@@ -31,7 +31,6 @@ public class Board extends JPanel{
         this.setBackground(Color.WHITE);
         initiate();
     }
-
     public void initiate(){
         instanceBoard = new ArrayList<>();
         for(int i=0;i<8;i++) {
