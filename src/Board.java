@@ -18,6 +18,7 @@ public class Board extends JPanel{
     private int dimY = 512;
     private int dimX = dimY;
     private int dimTile = dimY/8;
+    private Pieces dragPiece;
     private Pieces[][] statusBoard = new Pieces[8][8];
 
     public Board() throws IOException {
@@ -77,6 +78,9 @@ public class Board extends JPanel{
         Pieces piece;
         int x;
         int y;
+        if(dragPiece!=null) {
+            g.drawImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(dragPiece.getImage())), dragPiece.getX(), dragPiece.getY(), this);
+        }
         for(int i = 0;i<8;i++){
             for(int j = 0;j<8;j++){
                 piece = instanceBoard.get(i).get(j);
@@ -104,6 +108,12 @@ public class Board extends JPanel{
         int y = piece.getY();
         this.instanceBoard.get(x).set(y,piece);
         this.statusBoard[x][y] = piece;
+    }
+    public Pieces getDragPiece(){
+        return this.dragPiece;
+    }
+    public void setDragPiece(Pieces piece){
+        this.dragPiece = piece;
     }
 
     public ArrayList<ArrayList<Pieces>> getInstanceBoard() {
