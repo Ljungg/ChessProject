@@ -12,23 +12,44 @@ public class Board extends JPanel{
     private Graphics g;
     private JLabel picLabel;
     private BufferedImage image;
-    private ArrayList<Pieces> instanceBoard;
+    private ArrayList<ArrayList<Pieces>> instanceBoard;
+    private ArrayList<Integer> coordinateBoard;
     private int dimY = 512;
     private int dimX = dimY;
     private int dimTile = dimY/8;
     private Pieces[][] statusBoard = new Pieces[8][8];
+
     public Board() throws IOException {
         super();
+        coordinateBoard = new ArrayList<>();
+        for(int j = 0;j<8;j++) {
+            coordinateBoard.add(dimTile * j);
+        }
+        System.out.println(coordinateBoard);
         this.setPreferredSize(new Dimension(dimX,dimY));
         this.setBackground(Color.WHITE);
         initiate();
     }
+
     public void initiate(){
+        instanceBoard = new ArrayList<>();
+        for(int i=0;i<8;i++) {
+            for(int j=0;j<8;j++) {
+                statusBoard[i][j] = null;
+            }
+        }
+        for(int i = 0;i<8;i++){
+            instanceBoard.add(new ArrayList<Pieces>());
+            for(int j = 0;j<8;j++) {
+                instanceBoard.get(i).add(statusBoard[i][j]);
+            }
+        }
 
     }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
         //Graphics2D g2 = (Graphics2D) g;
         Image img1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/chessboard.png"));
         Image img2 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/Chess_qdt60.png"));
