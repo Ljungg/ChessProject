@@ -1,4 +1,5 @@
-import Pieces.Pieces;
+import Enumerators.Team;
+import Pieces.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -38,13 +39,30 @@ public class Board extends JPanel{
                 statusBoard[i][j] = null;
             }
         }
+        statusBoard[0][0] = new Rook(Team.BLACK);
+        statusBoard[0][7] = new Rook(Team.BLACK);
+        statusBoard[0][1] = new Knight(Team.BLACK);
+        statusBoard[0][6] = new Knight(Team.BLACK);
+        statusBoard[0][2] = new Bishop(Team.BLACK);
+        statusBoard[0][5] = new Bishop(Team.BLACK);
+        statusBoard[0][3] = new King(Team.BLACK);
+        statusBoard[0][4] = new Queen(Team.BLACK);
+        statusBoard[7][0] = new Rook(Team.WHITE);
+        statusBoard[7][7] = new Rook(Team.WHITE);
+        statusBoard[7][1] = new Knight(Team.WHITE);
+        statusBoard[7][6] = new Knight(Team.WHITE);
+        statusBoard[7][2] = new Bishop(Team.WHITE);
+        statusBoard[7][5] = new Bishop(Team.WHITE);
+        statusBoard[7][3] = new King(Team.WHITE);
+        statusBoard[7][4] = new Queen(Team.WHITE);
+
         for(int i = 0;i<8;i++){
             instanceBoard.add(new ArrayList<Pieces>());
             for(int j = 0;j<8;j++) {
                 instanceBoard.get(i).add(statusBoard[i][j]);
             }
         }
-
+        System.out.println(instanceBoard);
     }
     @Override
     public void paintComponent(Graphics g){
