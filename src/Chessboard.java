@@ -5,8 +5,8 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Chessboard extends JFrame{
-    private JPanel board;
-    public Chessboard(JPanel board){
+    private Board board;
+    public Chessboard(Board board){
         this.board = board;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);

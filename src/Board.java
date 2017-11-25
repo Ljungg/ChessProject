@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.swing.*;
 import java.awt.Graphics;
-import java.util.ArrayList;  //hallihall
+import java.util.ArrayList;
 //The entire board can be encoded into a 64*12=768 byte long vector
 
 public class Board extends JPanel{
@@ -29,6 +29,9 @@ public class Board extends JPanel{
         System.out.println(coordinateBoard);
         this.setPreferredSize(new Dimension(dimX,dimY));
         this.setBackground(Color.WHITE);
+        MoveListener listener = new MoveListener(this);
+        this.addMouseListener(listener);
+        this.addMouseMotionListener(listener);
         initiate();
     }
     public void initiate(){
@@ -93,6 +96,14 @@ public class Board extends JPanel{
         int x = piece.getX();
         int y = piece.getY();
         this.instanceBoard.get(x).set(y, null);
+        this.statusBoard[x][y] = null;
+    }
+
+    public void add(Pieces piece){
+        int x = piece.getX();
+        int y = piece.getY();
+        this.instanceBoard.get(x).set(y,piece);
+        this.statusBoard[x][y] = piece;
     }
 
     public ArrayList<ArrayList<Pieces>> getInstanceBoard() {
