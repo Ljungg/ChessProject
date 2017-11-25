@@ -7,8 +7,12 @@ public class Pawn extends Pieces {
     private String image;
     private final Team team;
     private final int value;
+    private int X;
+    private int Y;
 
-    public Pawn(Team team){
+    public Pawn(Team team, int x, int y){
+        this.X = x;
+        this.Y = y;
         this.value = 1;
         this.team = team;
         switch (team) {
@@ -37,12 +41,12 @@ public class Pawn extends Pieces {
 
     @Override
     public int getX() {
-        return 0;
+        return this.X;
     }
 
     @Override
     public int getY() {
-        return 0;
+        return this.Y;
     }
 
     @Override
