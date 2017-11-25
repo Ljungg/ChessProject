@@ -7,8 +7,12 @@ public class Rook extends Pieces{
     private String image;
     private final Team team;
     private final int value;
+    private int X;
+    private int Y;
 
-    public Rook(Team team){
+    public Rook(Team team, int x, int y){
+        this.X = x;
+        this.Y = y;
         this.value = 5;
         this.team = team;
         switch (team) {
@@ -38,12 +42,12 @@ public class Rook extends Pieces{
 
     @Override
     public int getX() {
-        return 0;
+        return this.X;
     }
 
     @Override
     public int getY() {
-        return 0;
+        return this.Y;
     }
 
     @Override

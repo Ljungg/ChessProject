@@ -37,27 +37,27 @@ public class Board extends JPanel{
         for(int i=0;i<8;i++) {
             for(int j=0;j<8;j++) {
                 statusBoard[i][j] = null;
-                if(j==1) statusBoard[i][j] = new Pawn(Team.BLACK);
-                if(j==6) statusBoard[i][j] = new Pawn(Team.WHITE);
+                if(j==1) statusBoard[i][j] = new Pawn(Team.BLACK, j,i);
+                if(j==6) statusBoard[i][j] = new Pawn(Team.WHITE, j,i);
             }
         }
-        statusBoard[0][0] = new Rook(Team.BLACK);
-        statusBoard[7][0] = new Rook(Team.BLACK);
-        statusBoard[1][0] = new Knight(Team.BLACK);
-        statusBoard[6][0] = new Knight(Team.BLACK);
-        statusBoard[2][0] = new Bishop(Team.BLACK);
-        statusBoard[5][0] = new Bishop(Team.BLACK);
-        statusBoard[3][0] = new Queen(Team.BLACK);
-        statusBoard[4][0] = new King(Team.BLACK);
+        statusBoard[0][0] = new Rook(Team.BLACK, 0, 0);
+        statusBoard[7][0] = new Rook(Team.BLACK, 7, 0);
+        statusBoard[1][0] = new Knight(Team.BLACK, 1, 0);
+        statusBoard[6][0] = new Knight(Team.BLACK, 6, 0);
+        statusBoard[2][0] = new Bishop(Team.BLACK, 2, 0);
+        statusBoard[5][0] = new Bishop(Team.BLACK, 5, 0);
+        statusBoard[3][0] = new Queen(Team.BLACK, 3, 0);
+        statusBoard[4][0] = new King(Team.BLACK, 4, 0);
 
-        statusBoard[0][7] = new Rook(Team.WHITE);
-        statusBoard[7][7] = new Rook(Team.WHITE);
-        statusBoard[1][7] = new Knight(Team.WHITE);
-        statusBoard[6][7] = new Knight(Team.WHITE);
-        statusBoard[2][7] = new Bishop(Team.WHITE);
-        statusBoard[5][7] = new Bishop(Team.WHITE);
-        statusBoard[3][7] = new Queen(Team.WHITE);
-        statusBoard[4][7] = new King(Team.WHITE);
+        statusBoard[0][7] = new Rook(Team.WHITE, 0,7);
+        statusBoard[7][7] = new Rook(Team.WHITE, 7, 7);
+        statusBoard[1][7] = new Knight(Team.WHITE, 1, 7);
+        statusBoard[6][7] = new Knight(Team.WHITE,6, 7);
+        statusBoard[2][7] = new Bishop(Team.WHITE,2,7);
+        statusBoard[5][7] = new Bishop(Team.WHITE,5,7);
+        statusBoard[3][7] = new Queen(Team.WHITE,3,7);
+        statusBoard[4][7] = new King(Team.WHITE,4,7);
 
         for(int i = 0;i<8;i++){
             instanceBoard.add(new ArrayList<>());
@@ -65,8 +65,6 @@ public class Board extends JPanel{
                 instanceBoard.get(i).add(statusBoard[i][j]);
             }
         }
-        System.out.println(instanceBoard);
-        System.out.println("Status board" + statusBoard);
     }
     @Override
     public void paintComponent(Graphics g){
@@ -87,8 +85,6 @@ public class Board extends JPanel{
                 }
             }
         }
-        //Graphics2D g2 = (Graphics2D) g;
-
     }
 
     /** used to update moveListener when moving a piece from one place to another.
