@@ -1,6 +1,25 @@
 package Pieces;
 
+import Enumerators.Team;
+
 public class Pawn extends Pieces {
+
+    private String image;
+    private final Team team;
+    private final int value;
+
+    public Pawn(Team team){
+        this.value = 1;
+        this.team = team;
+        switch (team) {
+            case WHITE:
+                this.image = "Images/Chess_plt60.png";
+                break;
+            case BLACK:
+                this.image = "Images/Chess_pdt60.png";
+                break;
+        }
+    }
     @Override
     public void move() {
 
@@ -13,7 +32,7 @@ public class Pawn extends Pieces {
 
     @Override
     public int getValue() {
-        return 0;
+        return this.value;
     }
 
     @Override
@@ -28,11 +47,11 @@ public class Pawn extends Pieces {
 
     @Override
     public Enum getColor() {
-        return null;
+        return this.team;
     }
 
     @Override
     public String getImage() {
-        return null;
+        return this.image;
     }
 }

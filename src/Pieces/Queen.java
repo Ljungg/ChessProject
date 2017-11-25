@@ -1,6 +1,26 @@
 package Pieces;
 
+import Enumerators.Team;
+
 public class Queen extends Pieces {
+
+    private String image;
+    private final Team team;
+    private final int value;
+
+    public Queen(Team team){
+        this.value = 8;
+        this.team = team;
+        switch (team) {
+            case WHITE:
+                this.image = "Images/Chess_qlt60.png";
+                break;
+            case BLACK:
+                this.image = "Images/Chess_qdt60.png";
+                break;
+        }
+    }
+
     @Override
     public void move() {
 
@@ -13,7 +33,7 @@ public class Queen extends Pieces {
 
     @Override
     public int getValue() {
-        return 0;
+        return this.value;
     }
 
     @Override
@@ -28,11 +48,11 @@ public class Queen extends Pieces {
 
     @Override
     public Enum getColor() {
-        return null;
+        return this.team;
     }
 
     @Override
     public String getImage() {
-        return null;
+        return this.image;
     }
 }
